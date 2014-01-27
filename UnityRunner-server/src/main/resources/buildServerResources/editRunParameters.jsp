@@ -128,8 +128,8 @@
         <props:selectProperty name="argument.force_graphics">
             <props:option value="none">Use default </props:option>
             <props:option value="opengl">OpenGL </props:option>
-            <props:option value="buildOSXPlayer" >Direct3D 9 </props:option>
-            <props:option value="buildWebPlayer" >Direct3D 11 </props:option>
+            <props:option value="d3d9" >Direct3D 9 </props:option>
+            <props:option value="d3d11" >Direct3D 11 </props:option>
         </props:selectProperty>
     </td>
 </tr>
