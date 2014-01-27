@@ -64,7 +64,7 @@ public class UnityBuildService extends CommandLineBuildService {
         List<String> args = new ArrayList<String>();
         args.add("-batchmode");
         if (config.isNoGraphics()) {
-            args.add("-noGraphics");
+            args.add("-nographics");
         }
         if (!config.getForcedGraphics().equals("none")) {
             args.add("-force-" + config.getForcedGraphics());
