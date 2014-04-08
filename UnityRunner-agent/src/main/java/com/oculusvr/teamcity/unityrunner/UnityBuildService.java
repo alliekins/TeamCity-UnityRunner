@@ -69,13 +69,13 @@ public class UnityBuildService extends CommandLineBuildService {
         if (!config.getForcedGraphics().equals("none")) {
             args.add("-force-" + config.getForcedGraphics());
         }
-        if (config.projectPath != null && !config.projectPath.equals("")) {
-            args.add("-projectPath");
-            args.add(config.getFullProjectPath());
-        }
+        args.add("-projectPath");
+        args.add(config.getFullProjectPath());
 
-        args.add("-logFile");
-        args.add("C:\\log_" + config.unityAction + ".txt");
+       if ( config.getLogfile() != null && !(config.getLogfile().equals("")) ) {
+            args.add("-logFile");
+            args.add(config.getLogfile());
+       }
 
         if (config.unityAction.equals(UnityRunnerConstants.EXECUTE_METHOD)) {
             //log.message("EXECUTE METHOD found!");
@@ -95,6 +95,8 @@ public class UnityBuildService extends CommandLineBuildService {
         } else if (config.unityAction.equals(UnityRunnerConstants.STANDALONE_WEB)) {
             //log.message("BUILD WINDOWS PLAYER found!");
             args.add("-" + UnityRunnerConstants.STANDALONE_WEB);
+        } else if (config.unityAction.equals("Nothing")) {
+            //do nothing
         } else {
             log.message("Sorry, I don't recognize \"" + config.unityAction + "\"");
         }

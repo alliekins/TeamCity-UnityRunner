@@ -12,6 +12,7 @@
     </th>
     <td>
         <props:textProperty name="teamcity.build.workingDir" style="width:32em;"/>
+        <bs:vcsTree fieldId="teamcity.build.workingDir"/>
         <span class="error" id="error_teamcity.build.workingDir"></span>
         <span class="smallNote">
              Optional, specify if differs from the checkout directory.
@@ -21,7 +22,7 @@
 
 <tr>
     <th>
-        <label for="argument.logfile">Working Directory: </label>
+        <label for="argument.logfile">Log file: </label>
     </th>
     <td>
         <props:textProperty name="argument.logfile" style="width:32em;"/>

@@ -68,7 +68,7 @@ public class UnityRunnerConfig {
     }
 
     public String getFullProjectPath() {
-        return workingDir + "/" + projectPath;
+        return workingDir + "/" + (projectPath != null ? projectPath : "");
     }
 
     public String getUnityAction() {
