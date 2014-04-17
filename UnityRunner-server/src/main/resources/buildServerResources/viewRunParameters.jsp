@@ -7,6 +7,18 @@
 <jsp:useBean id="propertiesBean" scope="request" type="jetbrains.buildServer.controllers.BasePropertiesBean"/>
 
 <div class="parameter">
+        <label for="argument.unity_path">Working Directory: </label>
+        <c:choose>
+            <c:when test="${not empty propertiesBean.properties['argument.unity_path']}">
+                <props:displayValue name="argument.unity_path" style="width:32em;"/>
+            </c:when>
+            <c:otherwise>
+                <strong>"unity"</strong>
+            </c:otherwise>
+        </c:choose>
+</div>
+
+<div class="parameter">
         <label for="teamcity.build.workingDir">Working Directory: </label>
         <c:choose>
             <c:when test="${not empty propertiesBean.properties['teamcity.build.workingDir']}">

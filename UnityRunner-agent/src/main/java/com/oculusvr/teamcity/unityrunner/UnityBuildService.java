@@ -29,16 +29,6 @@ public class UnityBuildService extends CommandLineBuildService {
 
         log = getRunnerContext().getBuild().getBuildLogger();
 
-        /*log.message("---------------CONFIG PARAMS--------------------");
-        for (String str : getRunnerContext().getConfigParameters().keySet()) {
-            log.message(str + " : " + getRunnerContext().getConfigParameters().get(str));
-        }
-
-        log.message("---------------ALL BUILD PARAMS--------------------");
-        for (String str : getRunnerContext().getBuildParameters().getAllParameters().keySet()) {
-            log.message(str + " : " + getRunnerContext().getBuildParameters().getAllParameters().get(str));
-        }*/
-
         log.message("---------------RUNNER PARAMS--------------------");
         for (String str : getRunnerContext().getRunnerParameters().keySet()) {
             log.message(str + " : " + getRunnerContext().getRunnerParameters().get(str));
@@ -46,14 +36,20 @@ public class UnityBuildService extends CommandLineBuildService {
         log.message("---------------END RUNNER PARAMS--------------------");
 
         this.config = new UnityRunnerConfig(getRunnerContext().getRunnerParameters());
-        config.unityPath = "unity";
-        log.message("--------------DUMPING CONFIG PARAMS--------------------");
+
+        if (config.getUnityPath() == null || config.getUnityPath().isEmpty()) {
+            config.unityPath = "unity";
+        }
+
+        log.message("--------------CONFIG PARAMS--------------------");
 
         log.message("config.unityPath : " + config.unityPath);
         log.message("config.projectPath : " + config.projectPath);
         log.message("config.nographics : " + config.isNoGraphics());
         log.message("config.unityAction : " + config.getUnityAction());
         log.message("config.executeMethod : " + config.executeMethod);
+
+        log.message("--------------END CONFIG PARAMS--------------------");
 
 
         return new SimpleProgramCommandLine(getRunnerContext(), config.unityPath, getArgs());

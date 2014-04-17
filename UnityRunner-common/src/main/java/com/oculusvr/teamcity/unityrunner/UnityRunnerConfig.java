@@ -52,10 +52,7 @@ public class UnityRunnerConfig {
             executeMethod = null;
         }
 
-
-        //platform = Platform.valueOf(runnerParameters.get("platform"));
-        unityPath = runnerParameters.get(UnityRunnerConstants.UNITY_PATH);
-        //exportPackages = runnerParameters.get("exportPackages");
+        unityPath = runnerParameters.get(UnityRunnerConstants.FORM_UNITY_PATH);
 
     }
 

@@ -22,5 +22,6 @@ public class UnityRunnerConstants {
     public final static String FORM_EXPORT_PACKAGES = "argument.export_packages";
     public final static String FORM_EXPORT_FILENAME = "argument.export_package_filename";
     public final static String FORM_PROJECT_PATH = "argument.project_path";
+    public final static String FORM_UNITY_PATH = "argument.unity_path";
 
 }

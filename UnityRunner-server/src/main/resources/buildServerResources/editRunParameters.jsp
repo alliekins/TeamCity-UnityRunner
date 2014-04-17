@@ -8,6 +8,20 @@
 
 <tr>
     <th>
+        <label for="argument.unity_path">Path to Unity EXE: </label>
+    </th>
+    <td>
+        <props:textProperty name="argument.unity_path" style="width:32em;"/>
+        <bs:vcsTree fieldId="argument.unity_path"/>
+        <span class="error" id="error_argument.unity_path"></span>
+        <span class="smallNote">
+             Optional, specify if unity.exe isn't in your path.
+        </span>
+    </td>
+</tr>
+
+<tr>
+    <th>
         <label for="teamcity.build.workingDir">Working Directory: </label>
     </th>
     <td>
