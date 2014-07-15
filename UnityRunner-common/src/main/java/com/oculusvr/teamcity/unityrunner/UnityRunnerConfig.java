@@ -16,11 +16,12 @@ public class UnityRunnerConfig {
     public String projectPath;
     public String unityAction;
     public String executeMethod;
+    public List<String> extraParams = new ArrayList<String>();
     public String workingDir;
 
     public Platform platform;
     public String unityPath;
-    public List<String> exportPackages;
+    public List<String> exportPackages = new ArrayList<String>();
     public String exportFilename;
     private String forcedGraphics;
 
@@ -35,6 +36,13 @@ public class UnityRunnerConfig {
         unityAction = runnerParameters.get("argument.unity_action");
         forcedGraphics = runnerParameters.get("argument.force_graphics");
         logfile = runnerParameters.get("argument.logfile");
+
+        if (runnerParameters.get("argument.extra_params") != null) {
+            String line = runnerParameters.get("argument.extra_params");
+            //this regex splits on spaces that have and even number of " or 0 " ahead of them - aka outside of "
+            String[] splitParams = line.split(" (?=([^\"]*\"[^\"]*\")*[^\"]*$)");
+            extraParams.addAll(Arrays.asList(splitParams));
+        }
 
         if (unityAction == null || unityAction.equals("")) {
             unityAction = "";
@@ -103,5 +111,9 @@ public class UnityRunnerConfig {
 
     public String getLogfile() {
         return logfile;
+    }
+
+    public List<String> getExtraParams() {
+        return extraParams;
     }
 }

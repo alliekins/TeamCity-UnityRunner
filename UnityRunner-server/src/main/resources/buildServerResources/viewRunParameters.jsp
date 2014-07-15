@@ -69,6 +69,15 @@
 </c:choose>
 
 <c:choose>
+    <c:when test="${not empty propertiesBean.properties['argument.execute_method']}">
+        <div class="parameter">
+            <label for="argument.extra_params">Extra params: </label>
+            <props:displayValue name="argument.extra_params" style="width:32em;"/>
+         </div>
+    </c:when>
+</c:choose>
+
+<c:choose>
     <c:when test="${propertiesBean.properties['argument.execute_method'] == 'exportPackage'}">
         <tr id="export_packages_to_export">
             <th>

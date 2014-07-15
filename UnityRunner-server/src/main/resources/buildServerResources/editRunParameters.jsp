@@ -91,6 +91,19 @@
         </td>
     </tr>
 
+    <tr id="execute_method_to_execute">
+        <th>
+            <label for="argument.extra_params">Extra params: </label>
+        </th>
+        <td>
+            <props:textProperty name="argument.extra_params" style="width:32em;"/>
+            <span class="error" id="error_argument.extra_params"></span>
+            <span class="smallNote">
+                 Specify any extra params the method might require (i.e. --apkName MyAPK.apk)
+            </span>
+        </td>
+    </tr>
+
 
     <tr id="export_packages_to_export">
         <th>
