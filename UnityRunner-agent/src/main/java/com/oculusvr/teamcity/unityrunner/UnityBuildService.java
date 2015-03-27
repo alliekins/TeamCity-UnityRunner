@@ -83,7 +83,6 @@ public class UnityBuildService extends CommandLineBuildService {
             //log.message("EXECUTE METHOD found!");
             args.add("-" + UnityRunnerConstants.EXECUTE_METHOD);
             args.add(config.executeMethod);
-            args.addAll(config.getExtraParams());
         } else if (config.unityAction.equals(UnityRunnerConstants.EXPORT_PACKAGE)) {
             //log.message("EXPORT PACKAGE found!");
             args.add("-" + UnityRunnerConstants.EXPORT_PACKAGE);
@@ -104,6 +103,7 @@ public class UnityBuildService extends CommandLineBuildService {
             log.message("Sorry, I don't recognize \"" + config.unityAction + "\"");
         }
 
+        args.addAll(config.getExtraParams());
         args.add("-quit");
         return args;
     }
